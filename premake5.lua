@@ -10,7 +10,9 @@ workspace "Hazel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+
 project "Hazel"
+
 	location "Hazel"
 	kind "SharedLib"
 	language "C++"
@@ -26,6 +28,7 @@ project "Hazel"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
@@ -62,7 +65,9 @@ project "Hazel"
 		defines "HZ_DIST"
 		symbols "On"
 
+
 project "Sandbox"
+
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
