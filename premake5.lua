@@ -26,7 +26,8 @@ project "Hazel"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"Hazel/src",
+		"Hazel/vendor/spdlog/include"
 	}
 
 	filter "system:windows"
