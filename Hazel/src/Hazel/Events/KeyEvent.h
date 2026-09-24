@@ -11,7 +11,7 @@ namespace Hazel
 	// ====================================
 
 	// ----- KeyEvent -----
-	class HAZEL_API KeyEvent : public Event	//²»ÖªµÀ¾ßÌåEventType£¬¼ÌĞø±£³Ö ³éÏó
+	class HAZEL_API KeyEvent : public Event	//ä¸çŸ¥é“å…·ä½“EventTypeï¼Œç»§ç»­ä¿æŒ æŠ½è±¡
 	{
 	public:
 

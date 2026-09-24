@@ -48,7 +48,7 @@ namespace Hazel
 	};
 
 
-	// Àà ºÍ ¶ÔÏó ¶¼¿ÉÒÔ»ñµÃÊÂ¼ş ÀàĞÍ ºÍ Àà±ğ
+	// ç±» å’Œ å¯¹è±¡ éƒ½å¯ä»¥è·å¾—äº‹ä»¶ ç±»å‹ å’Œ ç±»åˆ«
 	#define EVENT_CLASS_TYPE(type) \
 			static EventType GetStaticType() { return EventType::type; } \
 			virtual EventType GetEventType() const override { return GetStaticType(); } \

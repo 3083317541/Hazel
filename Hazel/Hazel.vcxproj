@@ -95,7 +95,7 @@
     <ProjectReference>
     </ProjectReference>
     <PostBuildEvent>
-      <Command>copy /B /Y "..\bin\Debug-windows-x86_64\Hazel\Hazel.dll" "$(SolutionDir)\bin\Debug-windows-x86_64\Sandbox"</Command>
+      <Command>copy /B /Y "..\bin\Debug-windows-x86_64\Hazel\Hazel.dll" "$(SolutionDir)\bin\Debug-windows-x86_64\Sandbox\Hazel.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -119,7 +119,7 @@
     <ProjectReference>
     </ProjectReference>
     <PostBuildEvent>
-      <Command>copy /B /Y "..\bin\Release-windows-x86_64\Hazel\Hazel.dll" "$(SolutionDir)\bin\Release-windows-x86_64\Sandbox"</Command>
+      <Command>copy /B /Y "..\bin\Release-windows-x86_64\Hazel\Hazel.dll" "$(SolutionDir)\bin\Release-windows-x86_64\Sandbox\Hazel.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -143,7 +143,7 @@
     <ProjectReference>
     </ProjectReference>
     <PostBuildEvent>
-      <Command>copy /B /Y "..\bin\Dist-windows-x86_64\Hazel\Hazel.dll" "$(SolutionDir)\bin\Dist-windows-x86_64\Sandbox"</Command>
+      <Command>copy /B /Y "..\bin\Dist-windows-x86_64\Hazel\Hazel.dll" "$(SolutionDir)\bin\Dist-windows-x86_64\Sandbox\Hazel.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

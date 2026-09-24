@@ -1,4 +1,4 @@
-workspace "Hazel"
+﻿workspace "Hazel"
 	architecture "x64"
 
 	configurations
@@ -9,6 +9,8 @@ workspace "Hazel"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+
 
 project "Hazel"
 	location "Hazel"
@@ -48,7 +50,7 @@ project "Hazel"
 
 		postbuildcommands
 		{
-			"{COPYFILE} %[%{!cfg.buildtarget.abspath}] %[%{!wks.location}/bin/" .. outputdir .. "/Sandbox]"
+			"{COPYFILE} %[%{!cfg.buildtarget.abspath}] %[%{!wks.location}/bin/" .. outputdir .. "/Sandbox/Hazel.dll]"
 		}
 
 	filter "configurations:Debug"
@@ -62,6 +64,8 @@ project "Hazel"
 	filter "configurations:Dist"
 		defines "HZ_DIST"
 		symbols "On"
+
+
 
 project "Sandbox"
 	location "Sandbox"
