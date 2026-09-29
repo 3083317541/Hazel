@@ -1,5 +1,6 @@
-﻿#include <hzpch.h>
+#include <hzpch.h>
 #include "Application.h"
+#include "Platform/Windows//WindowsWindow.h"
 
 #include "Events/EventDispatcher.h"
 #include "Events/ApplicationEvent.h"
@@ -10,6 +11,7 @@ namespace Hazel
 
     Application::Application()
     {
+        m_Window = std::unique_ptr<Window>(new WindowsWindow());
     }
 
     Application::~Application()
@@ -18,15 +20,10 @@ namespace Hazel
 
     void Application::Run()
     {
-        WindowResizeEvent e(1280, 720);
-
-        if (e.IsInCategory(EventCategoryApplication))
-        {
-            HZ_TRACE(e.ToString());
-        }
 
         while (m_Running)
         {
+            m_Window->OnUpdate();
         }
     }
 

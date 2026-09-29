@@ -1,4 +1,4 @@
-﻿workspace "Hazel"
+workspace "Hazel"
 	architecture "x64"
 
 	configurations
@@ -10,15 +10,17 @@
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include "Hazel/vendor/GLFW"
 
 
 project "Hazel"
+
 	location "Hazel"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("../bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "hzpch.h"
 	pchsource "Hazel/src/hzpch.cpp"
@@ -32,12 +34,20 @@ project "Hazel"
 	includedirs
 	{
 		"Hazel/src",
-		"Hazel/vendor/spdlog/include"
+		"Hazel/vendor/spdlog/include",
+		"Hazel/vendor/GLFW/include"
 	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
+	}
+
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "Off"
 		systemversion "latest"
 
 		buildoptions
@@ -71,6 +81,7 @@ project "Hazel"
 
 
 project "Sandbox"
+
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
@@ -98,7 +109,7 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "Off"
 		systemversion "latest"
 
 		buildoptions
