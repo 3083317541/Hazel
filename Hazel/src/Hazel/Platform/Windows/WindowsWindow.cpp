@@ -1,5 +1,9 @@
+﻿#pragma once
+
 #include "hzpch.h"
 #include "WindowsWindow.h"
+
+struct GLFWwindow;
 
 namespace Hazel
 {
@@ -17,8 +21,10 @@ namespace Hazel
 			nullptr
 		);
 
-		m_Date.Width = 1280;
-		m_Date.Height = 720;
+		glfwSetWindowUserPointer(m_Window, &m_Data);
+
+		m_Data.Width = 1280;
+		m_Data.Height = 720;
 	
 	}
 
@@ -43,8 +49,8 @@ namespace Hazel
 	}
 
 
-	unsigned int WindowsWindow::GetWidth() const { return m_Date.Width; }
-	unsigned int WindowsWindow::GetHeight() const { return m_Date.Height; }
+	unsigned int WindowsWindow::GetWidth() const { return m_Data.Width; }
+	unsigned int WindowsWindow::GetHeight() const { return m_Data.Height; }
 
 
 }

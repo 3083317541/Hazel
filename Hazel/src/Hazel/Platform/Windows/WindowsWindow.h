@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <GLFW/glfw3.h>
 #include "Hazel/Window.h"
@@ -11,38 +11,30 @@ namespace Hazel
 
 	public:
 
-		WindowsWindow(
-			const std::string& title = "Hazel Engine",
-			unsigned int width = 1280,
-			unsigned int height = 720);
-		
-		
+		WindowsWindow();
 		virtual ~WindowsWindow();
 
 		void OnUpdate() override;
 
-		unsigned int GetWidth()  const override { return m_Date.Width; };
-		unsigned int GetHeight() const override { return m_Date.Height; };
+		unsigned int GetWidth()  const override;
+		unsigned int GetHeight() const override;
 
-		void SetEventCallback(const EventCallbackFn& callback) override { m_Date.EventCallback = callback; }
+		//回调函数 将需要用到的Event指针直接赋值给callback，让函数在这里被保存
+		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 
 	private:
 
-		void Init(const std::string& title, unsigned int width, unsigned int height);
-		void Shutdown();
+		GLFWwindow* m_Window;	//下级GLFW指针
 
-		GLFWwindow* m_Window;
-
-		struct WindowData
+		struct WindowData		//数据
 		{
-			std::string Title;
 			unsigned int Width;
 			unsigned int Height;
 
 			EventCallbackFn EventCallback;
 		};
 
-		WindowData m_Date;
+		WindowData m_Data;
 
 	};
 
